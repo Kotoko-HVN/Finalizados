@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    float sbr = 0.0f;
+    float sli = 0.0f;
+    float idr = 0.0f;
+    float ipc = 0.0f;
+    
+    // SBR = Salario bruto
+    // SLI = Salario liquido
+    // IDR = Imposto de renda
+    // IPC = Imposto previdencia social
+    
+    printf("Digite o valor do Sálario Bruto: ");
+    scanf("%f", &sbr);
+    
+    sbr * 0.25;
+    
+        
+    return 0;
+
+}
+
