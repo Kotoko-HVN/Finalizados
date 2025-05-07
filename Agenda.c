@@ -34,6 +34,7 @@ int main() {
 		printf("1. Adicionar contato\n");
 		printf("2. Remover contato\n");
 		printf("3. Ver todos os contatos\n");
+        printf("4. Buscar contato\n");
 		printf("0. Sair\n");
 		printf("Escolha uma opcao: ");
 		scanf("%d", &opcao);
@@ -76,14 +77,13 @@ int main() {
     int indice;
     printf("Digite o número do contato que deseja remover: ");
     scanf("%d", &indice);
-    while (getchar() != '\n');  // limpa o buffer
+    while (getchar() != '\n');
     
     if (indice < 1 || indice > quantidadeatual) {
         printf("Número inválido!\n");
         break;
     }
 
-    // Remove o contato, deslocando os outros para cima
     for (int j = indice - 1; j < quantidadeatual - 1; j++) {
         ListaDeContatos[j] = ListaDeContatos[j + 1];
     }
@@ -96,7 +96,27 @@ int main() {
 			MostrarContatos(ListaDeContatos, quantidadeatual);
 			break;
 		
-	case 0:
+        case 4:
+            char busca [100];
+            int encontrou = 0;
+
+            printf("Digite o nome do contato: ");
+            fgets(busca, sizeof(busca), stdin);
+            busca[strcspn(busca, "\n")] = 0;
+
+            for (int j = 0; j < quantidadeatual; j++) {
+				if (strstr(ListaDeContatos[j].nome, busca) != NULL) {
+                    printf("\nContato %d\n", j + 1);
+                    printf("Nome: %s\n", ListaDeContatos[j].nome);
+                    printf("Telefone: %s\n", ListaDeContatos[j].telefone);
+                    printf("Email: %s\n", ListaDeContatos[j].email);
+                    encontrou = 1;
+                    }
+            }
+                        if (!encontrou)
+                            printf("Nenhum contato encontrado, %s\n", busca);
+						break;
+        case 0:
 		printf("Encerrando o programa. . .\n");
 		return 0;
 		break;
@@ -108,4 +128,4 @@ int main() {
 	}
 return 0;
 
-} 
+}
