@@ -10,7 +10,7 @@ int main() {
 
         for (N = P; N <= 2 * P; N++) {
             if (N * (N + 1) == esquerda) {
-                printf("==========\nLINHA %d\n%lld casas\npadaria na casa %lld\n==========", L, N, P);
+                printf("==========\nLINHA %d\n%lld pontos\nZero na %lld\n", L, N, P);
                 L++;
                 break;
             }
